@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ view.object.title if view.object else "New Report" }}</title>
+</head>
+<body>
+    <h1>{{ view.object.title if view.object else "New Report" }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'report-list' %}">Back to Reports</a>
+</body>
+</html>

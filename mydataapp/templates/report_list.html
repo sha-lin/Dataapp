@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+</head>
+<body>
+    <h1>Reports</h1>
+    <a href="{% url 'report-create' %}">Create New Report</a>
+    <a href="{% url 'export-excel' %}">Export to Excel</a>
+    <ul>
+        {% for report in object_list %}
+        <li>
+            <a href="{% url 'report-detail' report.pk %}">{{ report.title }}</a>
+            <a href="{% url 'report-update' report.pk %}">Edit</a>
+            <a href="{% url 'report-delete' report.pk %}">Delete</a>
+            <a href="{% url 'report-pdf' report.pk %}">Download PDF</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
